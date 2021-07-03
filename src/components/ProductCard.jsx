@@ -1,21 +1,22 @@
-export const ProductCard = () => {
+export const ProductCard = ({product:{brand,size,price}}) => {
   return (
     <div>
-      <div class="image-card-wrapper outlined" style="width: 15rem">
-        <div class="card-image greater-height">
+      <div className="image-card-wrapper outlined product-card-styled">
+        <div className="card-image greater-height">
           <img
-            src="images\mateo-avila-chinchilla-x_8oJhYU31k-unsplash.jpg"
-            alt="..."
+          className="product-image"
+            src="https://i.postimg.cc/g0CzBrxf/xs-t322-blwh-seven-rocks-original-imafxhagtyj2xvpn.jpg"
+            alt="product"
           />
-          <span class="badge-success">New</span>
+          <span className="badge-success">New</span>
         </div>
-        <div class="product-details-wrapper">
-          <p class="strong">Ether</p>
+        <div className="product-details-wrapper">
+          <p className="strong">{brand}</p>
           <p>Pure Cotton polo tshirt</p>
           <p>
-            <span class="strong">Rs395 </span>
-            <span class="line-through">Rs799 </span>
-            <span style="color: #fc452e">(50% OFF)</span>
+            <span className="strong">Rs{price} </span>
+            <span>{size}</span>
+           
           </p>
         </div>
       </div>

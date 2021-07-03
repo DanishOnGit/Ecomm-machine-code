@@ -1,0 +1,11 @@
+
+.product-card-styled{
+    width: 15rem;
+    min-height:5rem ;
+    margin: 1rem;
+}
+.product-listing-page{
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-image{}
