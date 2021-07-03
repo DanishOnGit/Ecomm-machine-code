@@ -3,49 +3,49 @@
       {
         "type": "tshirt",
         "brand": "levis",
-        "size": "M",
+        "size": ["S","M"],
         "price": 450,
         "idealFor": "men"
       },
       {
         "type": "jeans",
         "brand": "pepe",
-        "size": "L",
+        "size": ["S","M","L"],
         "price": 900,
         "idealFor": "men"
       },
       {
         "type": "top",
         "brand": "mango",
-        "size": "M",
+        "size": ["M","L"],
         "price": 800,
         "idealFor": "women"
       },
       {
         "type": "jeans",
-        "brand": "Levis",
-        "size": "S",
+        "brand": "levis",
+        "size": ["S"],
         "price": 500,
         "idealFor": "women"
       },
       {
         "type": "tshirt",
         "brand": "wrangler",
-        "size": "M",
+        "size": ["L","XL"],
         "price": 650,
         "idealFor": "women"
       },
       {
         "type": "dress",
         "brand": "veromoda",
-        "size": "M",
+        "size": ["M","XL"],
         "price": 850,
         "idealFor": "women"
       },
       {
         "type": "tshirt",
         "brand": "nike",
-        "size": "XL",
+        "size":[ "XL"],
         "price": 770,
         "idealFor": "Men"
       }

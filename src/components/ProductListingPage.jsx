@@ -5,13 +5,12 @@ import { useProducts } from "../context/ProductContext";
 
 export const ProductListingPage = () => {
   const [loading, setLoading] = useState(false);
-   
+
   const {
-    state: { productsList, sortBy,filterBy,filter },
+    state: { productsList, sortBy, filterBy },
     dispatch,
   } = useProducts();
-console.log(productsList)
- 
+  console.log(productsList);
 
   const priceSort = (productsList) => {
     if (sortBy === "PRICE_LOW_TO_HIGH") {
@@ -32,32 +31,50 @@ console.log(productsList)
   };
   const priceSortedData = priceSort(productsList, sortBy);
 
-const getFilteredData=(priceSortedData)=>{
-    if(filter){
-        return priceSortedData.filter(item=> item.size===filterBy.size.includes(item.size))
-    }return priceSortedData
-    
-}
-    const filteredData= getFilteredData(priceSortedData)
+  const getFilteredData = (priceSortedData) => {
+      let filteredData = [...priceSortedData]
+
+    if (filterBy.size.length !== 0) {
+      filteredData = filteredData.filter((product) => {
+        let flag = false;
+        filterBy.size.forEach((size) => {
+          if (product.size.includes(size)) {
+            flag = true;
+          }
+        });
+        return flag;
+      });
+    }
+
+    if (filterBy.brand.length !== 0) {
+        filteredData = filteredData.filter((product) => {
+          return filterBy.brand.includes(product.brand)
+        });
+      }
+
+    return filteredData;
+  };
+  const filteredData = getFilteredData(priceSortedData);
+//   console.log({ filteredData });
 
   useEffect(() => {
     const fetchProducts = async () => {
-        try {
-          setLoading(true);
-          const {
-            data: { products },
-          } = await axios.get("data.json");
-          setTimeout(() => {
-            dispatch({ type: "GET_PRODUCTS", payload: products });
-          }, 2000);
-        } catch (error) {
-          console.log(error);
-        } finally {
-          setLoading(false);
-        }
-      };
+      try {
+        setLoading(true);
+        const {
+          data: { products },
+        } = await axios.get("data.json");
+        setTimeout(() => {
+          dispatch({ type: "GET_PRODUCTS", payload: products });
+        }, 2000);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchProducts();
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
     <>
@@ -76,5 +93,3 @@ const getFilteredData=(priceSortedData)=>{
     </>
   );
 };
-
-

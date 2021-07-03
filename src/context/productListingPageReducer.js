@@ -19,18 +19,41 @@ export const productListingPageReducer = (state, action) => {
       };
     }
     case "FILTER_BY_SIZE": {
+      let newSizeArr;
+      if (state.filterBy.size.includes(action.payload)) {
+        newSizeArr = state.filterBy.size.filter(
+          (size) => size !== action.payload
+        );
+      } else {
+        newSizeArr = [...state.filterBy.size, action.payload];
+      }
+
       return {
         ...state,
-        filter:true,
-        filterBy: {...state.filterBy, size: [...state.filterBy.size, action.payload] },
+        filterBy: { ...state.filterBy, size: newSizeArr },
       };
     }
+
+    case "FILTER_BY_BRAND": {
+        let newBrandArr;
+        if (state.filterBy.brand.includes(action.payload)) {
+          newBrandArr = state.filterBy.brand.filter(
+            (brand) => brand !== action.payload
+          );
+        } else {
+          newBrandArr = [...state.filterBy.brand, action.payload];
+        }
+      return {
+        ...state,
+        filterBy: { ...state.filterBy, brand:newBrandArr },
+      };
+    }
+
     case "CLEAR_FILTERS": {
       return {
         ...state,
         showFullInventory: true,
-        filter:false,
-        filterBy: { size: [], brands: [] },
+        filterBy: { size: [], brand: [] },
         sortBy: null,
       };
     }

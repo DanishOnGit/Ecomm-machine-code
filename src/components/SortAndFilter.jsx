@@ -2,9 +2,12 @@ import { useProducts } from "../context/ProductContext";
 
 export const SortAndFilter = () => {
   const {
-    state: {  sortBy,filterBy },
+    state: { sortBy, filterBy },
     dispatch,
   } = useProducts();
+
+  const sizeArray = ["S", "M", "L", "XL"];
+  const brandArray =["levis","mango","veromoda","nike","wrangler"]
   return (
     <div className="sort-filter-wrapper">
       <fieldset>
@@ -40,50 +43,46 @@ export const SortAndFilter = () => {
       <fieldset>
         <legend>Sizes</legend>
         <ul className="list-non-bullet">
-          <li>
-            <label>
-              <input
-              
-                onChange={() => dispatch({ type: "FILTER_BY_SIZE",payload:"S" })}
-                type="checkbox"
-                checked={filterBy && filterBy.size.includes("S")}
-              />
-              S
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-              
-                onChange={() => dispatch({ type: "FILTER_BY_SIZE",payload:"M" })}
-                type="checkbox"
-                checked={filterBy && filterBy.size.includes("M")}
-              />
-              M
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                onChange={() => dispatch({ type: "FILTER_BY_SIZE",payload:"L" })}
-                type="checkbox"
-                checked={filterBy && filterBy.size.includes("L")}
-              />
-              L
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                onChange={() => dispatch({ type: "FILTER_BY_SIZE",payload:"XL" })}
-                type="checkbox"
-                checked={filterBy && filterBy.size.includes("XL")}
-              />
-              XL
-            </label>
-          </li>
+          {sizeArray.map((size) => (
+            <li>
+              <label>
+                <input
+                  onChange={() =>
+                    dispatch({ type: "FILTER_BY_SIZE", payload: size })
+                  }
+                  type="checkbox"
+                  checked={filterBy.size.includes(size)}
+                />
+                {size}
+              </label>
+            </li>
+          ))}
+          
         </ul>
       </fieldset>
+      <fieldset>
+        <legend>Brands</legend>
+        <ul className="list-non-bullet">
+          {brandArray.map((brand) => (
+            <li>
+              <label>
+                <input
+                  onChange={() =>
+                    dispatch({ type: "FILTER_BY_BRAND", payload: brand })
+                  }
+                  type="checkbox"
+                  checked={filterBy.brand.includes(brand)}
+                />
+                {brand}
+              </label>
+            </li>
+          ))}
+          
+        </ul>
+      </fieldset>
+
+
+
       <br />
       <button
         className="btn btn-link"
