@@ -1,6 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {ProductListingPage} from "./components/ProductListingPage"
 function App() {
   return (
     <div className="App">
