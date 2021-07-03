@@ -7,6 +7,7 @@ export const ProductProvider = ({ children }) => {
   const initialState = {
     showFullInventory: true,
     sortBy: null,
+    filter:false,
     filterBy: { size: [], brands: [] },
     productsList: [],
   };

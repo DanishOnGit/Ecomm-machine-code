@@ -5,12 +5,12 @@ import { useProducts } from "../context/ProductContext";
 
 export const ProductListingPage = () => {
   const [loading, setLoading] = useState(false);
-
+   
   const {
-    state: { productsList, sortBy },
+    state: { productsList, sortBy,filterBy,filter },
     dispatch,
   } = useProducts();
-
+console.log(productsList)
   const fetchProducts = async () => {
     try {
       setLoading(true);
@@ -46,10 +46,13 @@ export const ProductListingPage = () => {
   };
   const priceSortedData = priceSort(productsList, sortBy);
 
-  //   const getFilteredData=(priceSortedData)=>{
-  //       return priceSortedData.filter()
-  //   }
-  //   const filteredData= getFilteredData(priceSortedData)
+const getFilteredData=(priceSortedData)=>{
+    if(filter){
+        return priceSortedData.filter(item=> item.size===filterBy.size.includes(item.size))
+    }return priceSortedData
+    
+}
+    const filteredData= getFilteredData(priceSortedData)
 
   useEffect(() => {
     fetchProducts();
@@ -61,7 +64,10 @@ export const ProductListingPage = () => {
         <h1>Fetching products...</h1>
       ) : (
         <div className="product-listing-page">
-          {priceSortedData.map((product) => (
+          {/* {priceSortedData.map((product) => (
+            <ProductCard product={product} />
+          ))} */}
+          {filteredData.map((product) => (
             <ProductCard product={product} />
           ))}
         </div>
@@ -70,7 +76,4 @@ export const ProductListingPage = () => {
   );
 };
 
-// .filter((item) => (showFullInventory ? true : item.inStock))
-//       .filter((item) => (showFastDeliveryOnly ? item.fastDelivery : true))
-//       .filter((item) => item.price <= Number(priceRangeControl))
-//       .filter((item) => (searchText ? item.brand.includes(searchText.charAt(0).toUpperCase()) : item));
+

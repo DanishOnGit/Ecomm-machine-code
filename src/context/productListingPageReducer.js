@@ -21,6 +21,7 @@ export const productListingPageReducer = (state, action) => {
     case "FILTER_BY_SIZE": {
       return {
         ...state,
+        filter:true,
         filterBy: {...state.filterBy, size: [...state.filterBy.size, action.payload] },
       };
     }
@@ -28,6 +29,7 @@ export const productListingPageReducer = (state, action) => {
       return {
         ...state,
         showFullInventory: true,
+        filter:false,
         filterBy: { size: [], brands: [] },
         sortBy: null,
       };
