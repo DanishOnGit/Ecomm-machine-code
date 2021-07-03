@@ -2,7 +2,7 @@ import { useProducts } from "../context/ProductContext";
 
 export const SortAndFilter = () => {
   const {
-    state: { showFullInventory, sortBy, priceRangeControl,filterBy },
+    state: {  sortBy,filterBy },
     dispatch,
   } = useProducts();
   return (
@@ -38,15 +38,15 @@ export const SortAndFilter = () => {
       </fieldset>
 
       <fieldset>
-        <legend>Brand</legend>
+        <legend>Sizes</legend>
         <ul className="list-non-bullet">
           <li>
             <label>
               <input
               
-                onChange={() => dispatch({ type: "FILTER_BY_BRAND",payload:"S" })}
+                onChange={() => dispatch({ type: "FILTER_BY_SIZE",payload:"S" })}
                 type="checkbox"
-                checked={filterBy && filterBy}
+                checked={filterBy && filterBy.size.includes("S")}
               />
               S
             </label>
@@ -55,9 +55,9 @@ export const SortAndFilter = () => {
             <label>
               <input
               
-                onChange={() => dispatch({ type: "FILTER_BY_BRAND",payload:"M" })}
+                onChange={() => dispatch({ type: "FILTER_BY_SIZE",payload:"M" })}
                 type="checkbox"
-                checked={filterBy}
+                checked={filterBy && filterBy.size.includes("M")}
               />
               M
             </label>
@@ -65,9 +65,9 @@ export const SortAndFilter = () => {
           <li>
             <label>
               <input
-                onChange={() => dispatch({ type: "FILTER_BY_BRAND",payload:"L" })}
+                onChange={() => dispatch({ type: "FILTER_BY_SIZE",payload:"L" })}
                 type="checkbox"
-                checked={filterBy}
+                checked={filterBy && filterBy.size.includes("L")}
               />
               L
             </label>
@@ -75,9 +75,9 @@ export const SortAndFilter = () => {
           <li>
             <label>
               <input
-                onChange={() => dispatch({ type: "FILTER_BY_BRAND",payload:"XL" })}
+                onChange={() => dispatch({ type: "FILTER_BY_SIZE",payload:"XL" })}
                 type="checkbox"
-                checked={filterBy}
+                checked={filterBy && filterBy.size.includes("XL")}
               />
               XL
             </label>

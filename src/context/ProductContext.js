@@ -6,7 +6,6 @@ const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
   const initialState = {
     showFullInventory: true,
-    filterBy:false,
     sortBy: null,
     filterBy: { size: [], brands: [] },
     productsList: [],

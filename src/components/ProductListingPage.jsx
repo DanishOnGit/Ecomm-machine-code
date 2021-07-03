@@ -36,24 +36,24 @@ export const ProductListingPage = () => {
       );
     }
     if (sortBy === "PRICE_HIGH_TO_LOW") {
-        return [...productsList].sort(
-          (product1, product2) =>
-            Math.floor(Number(product2.price)) -
-            Math.floor(Number(product1.price))
-        );
-      }
-      return productsList
+      return [...productsList].sort(
+        (product1, product2) =>
+          Math.floor(Number(product2.price)) -
+          Math.floor(Number(product1.price))
+      );
+    }
+    return productsList;
   };
-  const priceSortedData=priceSort(productsList,sortBy)
+  const priceSortedData = priceSort(productsList, sortBy);
 
-//   const getFilteredData=(priceSortedData)=>{
-//       return priceSortedData.filter()
-//   }
-//   const filteredData= getFilteredData(priceSortedData)
+  //   const getFilteredData=(priceSortedData)=>{
+  //       return priceSortedData.filter()
+  //   }
+  //   const filteredData= getFilteredData(priceSortedData)
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  },[]);
 
   return (
     <>
@@ -69,7 +69,6 @@ export const ProductListingPage = () => {
     </>
   );
 };
-
 
 // .filter((item) => (showFullInventory ? true : item.inStock))
 //       .filter((item) => (showFastDeliveryOnly ? item.fastDelivery : true))
