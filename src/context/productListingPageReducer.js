@@ -49,11 +49,26 @@ export const productListingPageReducer = (state, action) => {
       };
     }
 
+    case "FILTER_BY_IDEAL_FOR": {
+        let newIdealForArr;
+        if (state.filterBy.idealFor.includes(action.payload)) {
+          newIdealForArr = state.filterBy.idealFor.filter(
+            (idealFor) => idealFor !== action.payload
+          );
+        } else {
+          newIdealForArr = [...state.filterBy.idealFor, action.payload];
+        }
+      return {
+        ...state,
+        filterBy: { ...state.filterBy, idealFor:newIdealForArr },
+      };
+    }
+
     case "CLEAR_FILTERS": {
       return {
         ...state,
         showFullInventory: true,
-        filterBy: { size: [], brand: [] },
+        filterBy: { size: [], brand: [],idealFor:[] },
         sortBy: null,
       };
     }

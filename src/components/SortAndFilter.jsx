@@ -8,6 +8,7 @@ export const SortAndFilter = () => {
 
   const sizeArray = ["S", "M", "L", "XL"];
   const brandArray =["levis","mango","veromoda","nike","wrangler"]
+  const idealForArray=["men","women"]
   return (
     <div className="sort-filter-wrapper">
       <fieldset>
@@ -80,6 +81,28 @@ export const SortAndFilter = () => {
           
         </ul>
       </fieldset>
+
+      <fieldset>
+        <legend>Ideal for</legend>
+        <ul className="list-non-bullet">
+          {idealForArray.map((idealFor) => (
+            <li>
+              <label>
+                <input
+                  onChange={() =>
+                    dispatch({ type: "FILTER_BY_IDEAL_FOR", payload: idealFor })
+                  }
+                  type="checkbox"
+                  checked={filterBy.idealFor.includes(idealFor)}
+                />
+                {idealFor}
+              </label>
+            </li>
+          ))}
+          
+        </ul>
+      </fieldset>
+
 
 
 

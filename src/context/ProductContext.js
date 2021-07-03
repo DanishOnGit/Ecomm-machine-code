@@ -7,7 +7,7 @@ export const ProductProvider = ({ children }) => {
   const initialState = {
     showFullInventory: true,
     sortBy: null,
-    filterBy: { size: [], brand: [] },
+    filterBy: { size: [], brand: [],idealFor:[] },
     productsList: [],
   };
   const [state, dispatch] = useReducer(productListingPageReducer, initialState);

@@ -52,10 +52,16 @@ export const ProductListingPage = () => {
         });
       }
 
+      if (filterBy.idealFor.length !== 0) {
+        filteredData = filteredData.filter((product) => {
+          return filterBy.idealFor.includes(product.idealFor)
+        });
+      }
+
     return filteredData;
   };
   const filteredData = getFilteredData(priceSortedData);
-//   console.log({ filteredData });
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -82,9 +88,7 @@ export const ProductListingPage = () => {
         <h1>Fetching products...</h1>
       ) : (
         <div className="product-listing-page">
-          {/* {priceSortedData.map((product) => (
-            <ProductCard product={product} />
-          ))} */}
+        
           {filteredData.map((product) => (
             <ProductCard product={product} />
           ))}
