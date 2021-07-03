@@ -11,21 +11,7 @@ export const ProductListingPage = () => {
     dispatch,
   } = useProducts();
 console.log(productsList)
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      const {
-        data: { products },
-      } = await axios.get("data.json");
-      setTimeout(() => {
-        dispatch({ type: "GET_PRODUCTS", payload: products });
-      }, 2000);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+ 
 
   const priceSort = (productsList) => {
     if (sortBy === "PRICE_LOW_TO_HIGH") {
@@ -55,8 +41,23 @@ const getFilteredData=(priceSortedData)=>{
     const filteredData= getFilteredData(priceSortedData)
 
   useEffect(() => {
+    const fetchProducts = async () => {
+        try {
+          setLoading(true);
+          const {
+            data: { products },
+          } = await axios.get("data.json");
+          setTimeout(() => {
+            dispatch({ type: "GET_PRODUCTS", payload: products });
+          }, 2000);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      };
     fetchProducts();
-  },[]);
+  },[dispatch]);
 
   return (
     <>
