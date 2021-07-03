@@ -1,4 +1,4 @@
-export const ProductCard = ({ product: { type, brand, size, price } }) => {
+export const ProductCard = ({ product: { type, brand, size, price,image } }) => {
  
   const sizesArr = size.map((size) =><span key={size}> {size} </span>);
 
@@ -8,7 +8,7 @@ export const ProductCard = ({ product: { type, brand, size, price } }) => {
         <div className="card-image greater-height">
           <img
             className="product-image"
-            src="https://i.postimg.cc/g0CzBrxf/xs-t322-blwh-seven-rocks-original-imafxhagtyj2xvpn.jpg"
+            src={image}
             alt="product"
           />
           <span className="badge-success">New</span>

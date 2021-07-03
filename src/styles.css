@@ -4,8 +4,18 @@
     min-height:5rem ;
     margin: 1rem;
 }
+.header{
+    height: 3rem;
+    color: orange;
+    background-color: palegoldenrod;
+}
 .product-listing-page{
     display: flex;
     flex-wrap: wrap;
 }
-.product-image{}
+.home-page-wrapper{
+    display: flex;
+}
+.sort-filter-styled{
+    min-width: 10rem;
+}

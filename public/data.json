@@ -5,49 +5,57 @@
         "brand": "levis",
         "size": ["S","M"],
         "price": 450,
-        "idealFor": "men"
+        "idealFor": "men",
+        "image":"https://rukminim1.flixcart.com/image/580/696/kf1fo280hlty2aw-0/t-shirt/w/s/e/-original-imafdfvvr8hqdu65.jpeg?q=50"
       },
       {
         "type": "jeans",
         "brand": "pepe",
         "size": ["S","M","L"],
         "price": 900,
-        "idealFor": "men"
+        "idealFor": "men",
+        "image":"https://rukminim1.flixcart.com/image/580/696/khmbafk0-0/t-shirt/w/j/s/xs-t322-blwh-seven-rocks-original-imafxhagtyj2xvpn.jpeg?q=50"
       },
       {
         "type": "top",
         "brand": "mango",
         "size": ["M","L"],
         "price": 800,
-        "idealFor": "women"
+        "idealFor": "women",
+        "image":"https://rukminim1.flixcart.com/image/580/696/kfh5ifk0/top/m/m/2/s-upt-try-this-original-imafvx28zhfhd7aw.jpeg?q=50"
       },
       {
         "type": "jeans",
         "brand": "levis",
         "size": ["S"],
         "price": 500,
-        "idealFor": "women"
+        "idealFor": "women",
+        "image":"https://rukminim1.flixcart.com/image/580/696/knrsjgw0/jean/w/g/y/34-shade-01-1-btn-jeans-ice-v-girl-original-imag2dq6unk5rufh.jpeg?q=50"
       },
       {
         "type": "tshirt",
         "brand": "wrangler",
         "size": ["L","XL"],
         "price": 650,
-        "idealFor": "women"
+        "idealFor": "women",
+        "image":"https://rukminim1.flixcart.com/image/580/696/klmmrgw0/top/b/d/9/xl-mfa-girls-shoppie-original-imagypeqznk22jaz.jpeg?q=50"
+
       },
       {
         "type": "dress",
         "brand": "veromoda",
         "size": ["M","XL"],
         "price": 850,
-        "idealFor": "women"
+        "idealFor": "women",
+        "image":"https://rukminim1.flixcart.com/image/580/696/jsaocy80/dress/g/a/d/m-ttj6001981-navy-blue-white-tokyo-talkies-original-imafdwbqfghd9869.jpeg?q=50"
       },
       {
         "type": "tshirt",
         "brand": "nike",
         "size":[ "XL"],
         "price": 770,
-        "idealFor": "men"
+        "idealFor": "men",
+        "image":"https://rukminim1.flixcart.com/image/580/696/kfk0e4w0-0/t-shirt/c/l/0/xxl-tblwtylrn-d27-tripr-original-imafvzjm8gs3kyga.jpeg?q=50"
       }
     ]
   }

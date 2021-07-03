@@ -10,7 +10,7 @@ export const SortAndFilter = () => {
   const brandArray =["levis","mango","veromoda","nike","wrangler"]
   const idealForArray=["men","women"]
   return (
-    <div className="sort-filter-wrapper">
+    <div className="sort-filter-wrapper sort-filter-styled">
       <fieldset>
         <legend>Sort BY:</legend>
         <ul className="list-non-bullet">
